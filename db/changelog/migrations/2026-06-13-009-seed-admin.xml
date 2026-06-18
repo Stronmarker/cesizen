@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="2026-06-13-009-seed-admin" author="alex">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">SELECT COUNT(*) FROM users WHERE email = 'admin@cesizen.fr'</sqlCheck>
+        </preConditions>
+
+        <insert tableName="users">
+            <column name="email" value="admin@cesizen.fr"/>
+            <column name="password_hash" value="$2a$10$IWSBTKnMWVwv4nNfQYLhgeyiSdwRruPudg2OZKxC.8LQVMtPAUU8e"/>
+            <column name="first_name" value="Admin"/>
+            <column name="nickname" value=""/>
+            <column name="role" value="admin"/>
+            <column name="is_active" valueBoolean="true"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Palette — 3 couleurs ───────────────────────────────
+     Vert forêt · Jaune beurre pâle · Blanc crème             */
+
+  /* Vert forêt (couleur primaire) */
+  --color-green-brand: #1a5c32;
+  --color-green-deep:  #134325;
+  --color-green-mid:   #2f7d4a;
+  --color-green-light: #dceee2;
+
+  /* Jaune beurre pâle (accent) */
+  --color-yellow-brand: #f2e2a0;
+  --color-yellow-deep:  #d9c36a;
+  --color-yellow-dark:  #c9a227;
+
+  /* Blanc crème (fond) */
+  --color-cream: #f7f5f0;
+
+  --font-sans: system-ui, -apple-system, sans-serif;
+}
+
+html, body, #root {
+  min-height: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: #173a25;
+  -webkit-font-smoothing: antialiased;
+
+  /* Fond crème avec halos translucides vert/jaune — donne de la
+     profondeur aux surfaces en verre dépoli (backdrop-blur). */
+  background-color: var(--color-cream);
+  background-image:
+    radial-gradient(60rem 60rem at 110% -10%, rgba(26, 92, 50, 0.10), transparent 60%),
+    radial-gradient(48rem 48rem at -15% 110%, rgba(242, 226, 160, 0.45), transparent 60%),
+    radial-gradient(40rem 40rem at 50% -20%, rgba(26, 92, 50, 0.05), transparent 55%);
+  background-attachment: fixed;
+}
+
+/* Empêche iOS Safari de zoomer au focus d'un input (font-size >= 16px) */
+input, select, textarea {
+  font-size: max(16px, 1em);
+}
+
+/* ── Surfaces en verre dépoli (réutilisables, uniformisées) ── */
+
+@utility glass {
+  background-color: color-mix(in srgb, white 55%, transparent);
+  backdrop-filter: blur(12px);
+  border: 1px solid color-mix(in srgb, white 60%, transparent);
+}
+
+@utility glass-strong {
+  background-color: color-mix(in srgb, var(--color-cream) 82%, transparent);
+  backdrop-filter: blur(20px);
+  border: 1px solid color-mix(in srgb, white 55%, transparent);
+}

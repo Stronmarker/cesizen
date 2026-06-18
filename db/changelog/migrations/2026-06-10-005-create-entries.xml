@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="2026-06-10-005-create-entries" author="alex">
+        <createTable tableName="entries">
+            <column name="id" type="serial">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="user_id" type="uuid">
+                <constraints nullable="false"
+                             foreignKeyName="fk_entries_user"
+                             references="users(id)"
+                             deleteCascade="true"/>
+            </column>
+            <column name="emotion_id" type="integer">
+                <constraints nullable="false"
+                             foreignKeyName="fk_entries_emotion"
+                             references="emotions(id)"/>
+            </column>
+            <column name="intensity" type="integer">
+                <constraints nullable="false"/>
+            </column>
+            <column name="comment" type="text"/>
+            <column name="entry_date" type="timestamptz">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="timestamptz" defaultValueComputed="now()">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <sql>ALTER TABLE entries ADD CONSTRAINT chk_intensity CHECK (intensity BETWEEN 1 AND 10)</sql>
+    </changeSet>
+
+</databaseChangeLog>

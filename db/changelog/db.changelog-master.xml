@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <include file="changelog/migrations/2026-05-26-001-create-users.xml"/>
+    <include file="changelog/migrations/2026-06-08-002-create-contents.xml"/>
+    <include file="changelog/migrations/2026-06-10-003-create-primary-emotions.xml"/>
+    <include file="changelog/migrations/2026-06-10-004-create-emotions.xml"/>
+    <include file="changelog/migrations/2026-06-10-005-create-entries.xml"/>
+    <include file="changelog/migrations/2026-06-10-006-seed-emotions.xml"/>
+    <include file="changelog/migrations/2026-06-10-007-create-refresh-tokens.xml"/>
+    <include file="changelog/migrations/2026-06-10-008-create-password-reset-tokens.xml"/>
+    <include file="changelog/migrations/2026-06-13-009-seed-admin.xml"/>
+
+</databaseChangeLog>

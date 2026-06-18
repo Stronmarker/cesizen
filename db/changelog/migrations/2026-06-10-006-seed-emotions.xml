@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="2026-06-10-006-seed-emotions" author="alex">
+        <!-- Primary emotions -->
+        <insert tableName="primary_emotions"><column name="label" value="Joie"/></insert>
+        <insert tableName="primary_emotions"><column name="label" value="Colère"/></insert>
+        <insert tableName="primary_emotions"><column name="label" value="Peur"/></insert>
+        <insert tableName="primary_emotions"><column name="label" value="Tristesse"/></insert>
+        <insert tableName="primary_emotions"><column name="label" value="Surprise"/></insert>
+        <insert tableName="primary_emotions"><column name="label" value="Dégoût"/></insert>
+
+        <!-- Joie (id=1) -->
+        <insert tableName="emotions"><column name="label" value="Fierté"/><column name="primary_emotion_id" valueComputed="(SELECT id FROM primary_emotions WHERE label='Joie')"/></insert>
+        <insert tableName="emotions"><column name="label" value="Contentement"/><column name="primary_emotion_id" valueComputed="(SELECT id FROM primary_emotions WHERE label='Joie')"/></insert>
+        <insert tableName="emotions"><column name="label" value="Enchantement"/><column name="primary_emotion_id" valueComputed="(SELECT id FROM primary_emotions WHERE label='Joie')"/></insert>
+        <insert tableName="emotions"><column name="label" value="Excitation"/><column name="primary_emotion_id" valueComputed="(SELECT id FROM primary_emotions WHERE label='Joie')"/></insert>
+        <insert tableName="emotions"><column name="label" value="Émerveillement"/><column name="primary_emotion_id" valueComputed="(SELECT id FROM primary_emotions WHERE label='Joie')"/></insert>
+        <insert tableName="emotions"><column name="label" value="Gratitude"/><column name="primary_emotion_id" valueComputed="(SELECT id FROM primary_emotions WHERE label='Joie')"/></insert>
+
+        <!-- Colère (id=2) -->
+        <insert tableName="emotions"><column name="label" value="Frustration"/><column name="primary_emotion_id" valueComputed="(SELECT id FROM primary_emotions WHERE label='Colère')"/></insert>
+        <insert tableName="emotions"><column name="label" value="Irritation"/><column name="primary_emotion_id" valueComputed="(SELECT id FROM primary_emotions WHERE label='Colère')"/></insert>
+        <insert tableName="emotions"><column name="label" value="Rage"/><column name="primary_emotion_id" valueComputed="(SELECT id FROM primary_emotions WHERE label='Colère')"/></insert>
+        <insert tableName="emotions"><column name="label" value="Ressentiment"/><column name="primary_emotion_id" valueComputed="(SELECT id FROM primary_emotions WHERE label='Colère')"/></insert>
+        <insert tableName="emotions"><column name="label" value="Agacement"/><column name="primary_emotion_id" valueComputed="(SELECT id FROM primary_emotions WHERE label='Colère')"/></insert>
+        <insert tableName="emotions"><column name="label" value="Hostilité"/><column name="primary_emotion_id" valueComputed="(SELECT id FROM primary_emotions WHERE label='Colère')"/></insert>
+
+        <!-- Peur (id=3) -->
+        <insert tableName="emotions"><column name="label" value="Inquiétude"/><column name="primary_emotion_id" valueComputed="(SELECT id FROM primary_emotions WHERE label='Peur')"/></insert>
+        <insert tableName="emotions"><column name="label" value="Anxiété"/><column name="primary_emotion_id" valueComputed="(SELECT id FROM primary_emotions WHERE label='Peur')"/></insert>
+        <insert tableName="emotions"><column name="label" value="Terreur"/><column name="primary_emotion_id" valueComputed="(SELECT id FROM primary_emotions WHERE label='Peur')"/></insert>
+        <insert tableName="emotions"><column name="label" value="Appréhension"/><column name="primary_emotion_id" valueComputed="(SELECT id FROM primary_emotions WHERE label='Peur')"/></insert>
+        <insert tableName="emotions"><column name="label" value="Panique"/><column name="primary_emotion_id" valueComputed="(SELECT id FROM primary_emotions WHERE label='Peur')"/></insert>
+        <insert tableName="emotions"><column name="label" value="Crainte"/><column name="primary_emotion_id" valueComputed="(SELECT id FROM primary_emotions WHERE label='Peur')"/></insert>
+
+        <!-- Tristesse (id=4) -->
+        <insert tableName="emotions"><column name="label" value="Chagrin"/><column name="primary_emotion_id" valueComputed="(SELECT id FROM primary_emotions WHERE label='Tristesse')"/></insert>
+        <insert tableName="emotions"><column name="label" value="Mélancolie"/><column name="primary_emotion_id" valueComputed="(SELECT id FROM primary_emotions WHERE label='Tristesse')"/></insert>
+        <insert tableName="emotions"><column name="label" value="Abattement"/><column name="primary_emotion_id" valueComputed="(SELECT id FROM primary_emotions WHERE label='Tristesse')"/></insert>
+        <insert tableName="emotions"><column name="label" value="Désespoir"/><column name="primary_emotion_id" valueComputed="(SELECT id FROM primary_emotions WHERE label='Tristesse')"/></insert>
+        <insert tableName="emotions"><column name="label" value="Solitude"/><column name="primary_emotion_id" valueComputed="(SELECT id FROM primary_emotions WHERE label='Tristesse')"/></insert>
+        <insert tableName="emotions"><column name="label" value="Dépression"/><column name="primary_emotion_id" valueComputed="(SELECT id FROM primary_emotions WHERE label='Tristesse')"/></insert>
+
+        <!-- Surprise (id=5) -->
+        <insert tableName="emotions"><column name="label" value="Étonnement"/><column name="primary_emotion_id" valueComputed="(SELECT id FROM primary_emotions WHERE label='Surprise')"/></insert>
+        <insert tableName="emotions"><column name="label" value="Stupéfaction"/><column name="primary_emotion_id" valueComputed="(SELECT id FROM primary_emotions WHERE label='Surprise')"/></insert>
+        <insert tableName="emotions"><column name="label" value="Sidération"/><column name="primary_emotion_id" valueComputed="(SELECT id FROM primary_emotions WHERE label='Surprise')"/></insert>
+        <insert tableName="emotions"><column name="label" value="Incrédulité"/><column name="primary_emotion_id" valueComputed="(SELECT id FROM primary_emotions WHERE label='Surprise')"/></insert>
+        <insert tableName="emotions"><column name="label" value="Confusion"/><column name="primary_emotion_id" valueComputed="(SELECT id FROM primary_emotions WHERE label='Surprise')"/></insert>
+
+        <!-- Dégoût (id=6) -->
+        <insert tableName="emotions"><column name="label" value="Répulsion"/><column name="primary_emotion_id" valueComputed="(SELECT id FROM primary_emotions WHERE label='Dégoût')"/></insert>
+        <insert tableName="emotions"><column name="label" value="Déplaisir"/><column name="primary_emotion_id" valueComputed="(SELECT id FROM primary_emotions WHERE label='Dégoût')"/></insert>
+        <insert tableName="emotions"><column name="label" value="Nausée"/><column name="primary_emotion_id" valueComputed="(SELECT id FROM primary_emotions WHERE label='Dégoût')"/></insert>
+        <insert tableName="emotions"><column name="label" value="Dédain"/><column name="primary_emotion_id" valueComputed="(SELECT id FROM primary_emotions WHERE label='Dégoût')"/></insert>
+        <insert tableName="emotions"><column name="label" value="Horreur"/><column name="primary_emotion_id" valueComputed="(SELECT id FROM primary_emotions WHERE label='Dégoût')"/></insert>
+    </changeSet>
+
+</databaseChangeLog>
