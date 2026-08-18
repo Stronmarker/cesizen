@@ -23,6 +23,7 @@ func New(
 	r := chi.NewRouter()
 	r.Use(chimiddleware.Logger)
 	r.Use(chimiddleware.Recoverer)
+	r.Use(middleware.SecurityHeaders)
 	r.Use(middleware.CORS(allowedOrigins))
 
 	r.Route("/api/v1", func(r chi.Router) {
